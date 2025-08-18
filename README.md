@@ -54,7 +54,7 @@ O aplicativo abrange várias áreas da matemática, incluindo:
 git clone https://github.com/liposoetec/MathPlay-mobile.git
 
 # Acesse a pasta do projeto
-cd mathplay
+cd MathPlay-mobile
 
 # Abra o arquivo principal no navegador
 index.html
