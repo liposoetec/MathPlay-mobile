@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Diário - MathPlay</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <a href="index.html" class="back-button">←</a>
+            <h1>Desafio Diário</h1>
+        </header>
+
+        <main class="main-content">
+            <div class="question-card">
+                <p class="question-text">Qual é o valor de x na equação: 2x + 5 = 17?</p>
+                <div class="options">
+                    <a href="?resposta=6" class="option-btn">6</a>
+                    <a href="?resposta=7" class="option-btn">7</a>
+                    <a href="?resposta=8" class="option-btn">8</a>
+                    <a href="?resposta=9" class="option-btn">9</a>
+                </div>
+            </div>
+
+            <div class="feedback hidden">
+                <p class="result-message"></p>
+                
+                <!-- Caixa de explicação (inicialmente oculta) -->
+                <div class="explanation-box hidden">
+                    <h3>Explicação:</h3>
+                    <p>Para resolver a equação 2x + 5 = 17:</p>
+                    <ol>
+                        <li>Subtraia 5 dos dois lados: 2x = 12</li>
+                        <li>Divida ambos os lados por 2: x = 6</li>
+                    </ol>
+                    <p>Portanto, o valor correto de x é <strong>6</strong>.</p>
+                </div>
+                
+                <a href="index.html" class="btn-continue">Continuar</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Verifica se há resposta na URL
+        if(window.location.search.includes("resposta=6")) {
+            const feedback = document.querySelector('.feedback');
+            feedback.classList.remove('hidden');
+            document.querySelector('.result-message').textContent = "✅ Correto! x = 6";
+            document.querySelector('.result-message').style.color = "#4CAF50";
+            
+            // Mostra a explicação para resposta correta
+            document.querySelector('.explanation-box').classList.remove('hidden');
+        } 
+        else if(window.location.search.includes("resposta=")) {
+            document.querySelector('.feedback').classList.remove('hidden');
+            document.querySelector('.result-message').textContent = "❌ Tente novamente!";
+            document.querySelector('.result-message').style.color = "#F44336";
+        }
+    </script>
+</body>
+</html>

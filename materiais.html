@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais de Estudo - MathLingo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5D9CEC;
+            --secondary-color: #89B8E0;
+            --background-color: #F9F9F9;
+            --card-color: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: var(--background-color);
+            color: #333;
+        }
+        
+        .app-container {
+            max-width: 480px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background-color: var(--card-color);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .app-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .back-button {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .main-content {
+            padding: 1.5rem;
+            padding-bottom: 80px;
+        }
+        
+        .page-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Lista de matérias */
+        .materials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .subject-item {
+            background-color: var(--card-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .subject-header {
+            padding: 1.2rem;
+            background-color: #E8F4FC;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .subject-header:hover {
+            background-color: #D4E6F1;
+        }
+        
+        .subject-title {
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .subject-icon {
+            font-size: 1.2rem;
+        }
+        
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .subject-item.active .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .content-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+        
+        .subject-item.active .content-list {
+            max-height: 1000px;
+            padding: 0.5rem 1rem 1rem;
+        }
+        
+        .content-item {
+            padding: 0.8rem 0.8rem 0.8rem 2rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .content-item:last-child {
+            border-bottom: none;
+        }
+        
+        .content-item:hover {
+            color: var(--primary-color);
+            background-color: #F5F9FF;
+        }
+        
+        .content-icon {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Navegação inferior */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            padding: 0.8rem 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        
+        .nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #777;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        
+        .nav-btn.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-btn span {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+        @media (max-width: 400px) {
+    .subjects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <a href="index.html" class="back-button">←</a>
+            <h1>Materiais</h1>
+        </header>
+
+        <main class="main-content">
+            <h2 class="page-title">Materiais de Estudo</h2>
+            
+            <div class="materials-list">
+                <!-- Geometria Plana -->
+                <div class="subject-item" id="geometry">
+                    <div class="subject-header">
+                        <div class="subject-title">
+                            <span class="subject-icon">📐</span>
+                            <span>Geometria Plana</span>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="content-list">
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📍</span>
+                            <span>Conceitos básicos</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📏</span>
+                            <span>Tipos de ângulos</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔷</span>
+                            <span>Polígonos</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔺</span>
+                            <span>Triângulos</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔳</span>
+                            <span>Quadriláteros</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">⚪</span>
+                            <span>Circunferência</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📐</span>
+                            <span>Áreas das figuras planas</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📏</span>
+                            <span>Perímetro das figuras planas</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📊</span>
+                            <span>Teorema de Pitágoras</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📎</span>
+                            <span>Relações trigonométricas básicas</span>
+                        </a>
+                    </div>
+                </div>
+
+                    <!-- Análise Gráfica -->
+                <div class="subject-item" id="graph-analysis">
+                    <div class="subject-header">
+                        <div class="subject-title">
+                            <span class="content-icon">📊</span>
+                            <span>Análise Gráfica</span>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="content-list">
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📑</span>
+                            <span>Interpretação de gráficos e tabelas</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📍</span>
+                            <span>Gráficos cartesianos</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📈</span>
+                            <span>Representação de funções</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🥧</span>
+                            <span>Gráficos de setores, colunas e barras</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📉</span>
+                            <span>Gráficos de linhas</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📏</span>
+                            <span>Escalas e proporções em gráficos</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📊</span>
+                            <span>Tendência, variação e comparação de dados</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔽</span>
+                            <span>Indentificação de máximos</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔄</span>
+                            <span>Transformações no gráfico</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Álgebra -->
+                <div class="subject-item" id="algebra">
+                    <div class="subject-header">
+                        <div class="subject-title">
+                            <span class="subject-icon">🔢</span>
+                            <span>Álgebra</span>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="content-list">
+                        <a href="#" class="content-item">
+                            <span class="content-icon">✏️</span>
+                            <span>Expressões algébricas</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">➕</span>
+                            <span>Operações com polinômios</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📐</span>
+                            <span>Produtos notáveis</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🧩</span>
+                            <span>Fatoração de polinômios</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">1️⃣</span>
+                            <span>Equações do 1º grau</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">2️⃣</span>
+                            <span>Equações do 2º grau</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔀</span>
+                            <span>Sistemas de equações lineares</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🚫</span>
+                            <span>inequações</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📈</span>
+                            <span>Funções algébricas</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">✖️</span>
+                            <span>Radiciação e potenciação</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔬</span>
+                            <span>Notação científica</span>
+                        </a>
+
+                    
+                    </div>
+                </div>
+                
+            
+                <!--Teoria das probabilidades-->
+
+                <div class="subject-item" id="teoria">
+                    <div class="subject-header">
+                        <div class="subject-title">
+                            <span class="subject-icon">🎲</span>
+                            <span>Teoria das probabilidades</span>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="content-list">
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🎯</span>
+                            <span>Conceito de probabilidades</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📦</span>
+                            <span>Experimento aleatório, espaço amostral e evento</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📊</span>
+                            <span>Probabilidade clássica e frequencial</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔗</span>
+                            <span>Eventos mutuamente exclusivos e independentes</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🧮</span>
+                            <span>Probabilidade condicional</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">➕</span>
+                            <span>Teorema da soma</span>
+                        </a> 
+                        <a href="#" class="content-item">
+                            <span class="content-icon">✖️</span>
+                            <span>Teorema do produto</span>  
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📐</span>
+                            <span>Probabilidade total e Teorema de Bayes</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🌍</span>
+                            <span>Aplicações simples no cotidiano</span>
+                        </a>
+                     
+                    </div>
+                </div>
+
+                <!--Análise combinatória-->
+
+                <div class="subject-item" id="teoria">
+                    <div class="subject-header">
+                        <div class="subject-title">
+                            <span class="subject-icon">🧮</span>
+                            <span>Análise combinatória</span>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="content-list">
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🛤️</span>
+                            <span>Princípio fundamental da contagem</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📋</span>
+                            <span>Arranjos simples</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔄</span>
+                            <span>Permutações simples</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">♻️</span>
+                            <span>Permutações com repetição</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔢</span>
+                            <span>Combinações simples</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🗃️</span>
+                            <span>Combinações com repetição</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📏</span>
+                            <span>Fatorial e suas propriedades</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">💡</span>
+                            <span>Aplicações em problemas de contagem</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!--progressão aritmética-->
+
+                <div class="subject-item" id="teoria">
+                    <div class="subject-header">
+                        <div class="subject-title">
+                            <span class="subject-icon">➕</span>
+                            <span>Progressão aritmética</span>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="content-list">
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📜</span>
+                            <span>Definição de PA</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔢</span>
+                            <span>Termo geral da PA</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">⚙️</span>
+                            <span>Razão da PA</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📐</span>
+                            <span>Soma dos termos de uma PA finita</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📈</span>
+                            <span>Classificação: Crescente, decrescente e constante</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">💼</span>
+                            <span>Aplicações de PA no cotidiano</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!--Razão e proporção-->
+                
+                <div class="subject-item" id="teoria">
+                    <div class="subject-header">
+                        <div class="subject-title">
+                            <span class="subject-icon">⚖️</span>
+                            <span>Razão e proporção</span>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="content-list">
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📏</span>
+                            <span>Definição de razão</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🔄</span>
+                            <span>Definição de proporção</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📚</span>
+                            <span>Propriedades das proporções</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">📊</span>
+                            <span>Grandeas proporcionais</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🧮</span>
+                            <span>Regra de três simples e composta</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">🗺️</span>
+                            <span>Escalas</span>
+                        </a>
+                        <a href="#" class="content-item">
+                            <span class="content-icon">✂️</span>
+                            <span>Divisão proporcional</span>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-btn"><span>🏠</span> Início</a>
+            <a href="materiais.html" class="nav-btn active"><span>📚</span> Materiais</a>
+            <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
+        </nav>
+    </div>
+
+    <script>
+        // Adiciona evento de clique para expandir/recolher os itens
+        document.querySelectorAll('.subject-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const subjectItem = this.closest('.subject-item');
+                subjectItem.classList.toggle('active');
+                
+                // Recolhe outros itens abertos (opcional)
+                document.querySelectorAll('.subject-item').forEach(item => {
+                    if (item !== subjectItem) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

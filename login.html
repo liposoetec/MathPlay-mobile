@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MathPlay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #f5f9fc;
+        }
+        
+        /* Container principal */
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            background: linear-gradient(135deg, #E8F4FC 0%, #D4E6F1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Cabeçalho com logo */
+        .login-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            z-index: 2;
+        }
+        
+        .app-logo {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #5D9CEC;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-weight: 700;
+        }
+        
+        .app-slogan {
+            color: #6B7C93;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Formulário de login */
+        .login-form {
+            width: 100%;
+            max-width: 350px;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            z-index: 2;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #6B7C93;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #D4E6F1;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #5D9CEC;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(93, 156, 236, 0.2);
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to right, #5D9CEC, #89B8E0);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* Rodapé */
+        .login-footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #6B7C93;
+            z-index: 2;
+        }
+        
+        /* Elementos decorativos */
+        .math-icon {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 1;
+            font-size: 4rem;
+            color: #5D9CEC;
+        }
+        
+        /* Tela de carregamento */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #E8F4FC 0%, #D4E6F1 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(93, 156, 236, 0.2);
+            border-radius: 50%;
+            border-top-color: #5D9CEC;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1.5rem;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #5D9CEC;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .loading-mascot {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Elementos decorativos -->
+        <div class="math-icon" style="top:10%;left:10%;transform:rotate(15deg);">∫</div>
+        <div class="math-icon" style="bottom:15%;right:10%;transform:rotate(-10deg);">π</div>
+        
+        <!-- Conteúdo principal -->
+        <div class="login-header">
+            <div class="app-logo">MathPlay</div>
+            <p class="app-slogan">Aprenda matemática de forma divertida!</p>
+        </div>
+        
+        <div class="login-form">
+            <div class="form-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" class="form-control" placeholder="Digite seu usuário">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" class="form-control" placeholder="Digite sua senha">
+            </div>
+            
+            <button class="btn-login" id="loginButton">Entrar</button>
+        </div>
+        
+        <div class="login-footer">
+            <p>Novo por aqui? <a href="#" style="color: #5D9CEC;">Crie uma conta</a></p>
+        </div>
+        
+        <!-- Tela de carregamento (inicialmente oculta) -->
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loading-mascot">🐰</div>
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Carregando seu aprendizado...</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Mostra a tela de carregamento
+            document.getElementById('loadingScreen').classList.add('active');
+            
+            // Simula um tempo de carregamento (3 segundos)
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

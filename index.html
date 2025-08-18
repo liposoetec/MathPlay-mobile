@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathPlay - Aprenda Matemática</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div class="app-container">
+        <header class="app-header">
+            <div class="user-profile">
+                <span class="username">Olá, Estudante!</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="motivational-section">
+                <div class="mascot"><img src="img/mascote.png" alt="mascote" class="logomascote"></div>
+                <p class="motivational-text">Vamos aprender matemática de forma divertida!</p>
+            </div>
+
+             <div class="daily-challenge-card" onclick="location.href='desafio.html'">
+                <h3>Desafio Diário</h3>
+                <p>Teste seus conhecimentos com o desafio de hoje!</p>
+            </div>
+
+            <section class="subjects-section">
+                <h2>Matérias</h2>
+                <div class="subjects-grid">
+                    <div class="subject-card" onclick="showIntro('geometria')">
+                        <div class="subject-icon"><img src="img/geometria.png" alt="geo" class="icons"></div>
+                        <h3>Geometria Plana</h3>
+                    </div> 
+                     <div class="subject-card" onclick="showIntro('análisegraf')">
+                        <div class="subject-icon"><img src="img/grafica.png" alt="geo" class="icons"></div>
+                        <h3>Análise Gráfica</h3>
+                    </div> 
+                     <div class="subject-card" onclick="showIntro('álgebra')">
+                        <div class="subject-icon"><img src="img/algebra.png" alt="geo" class="icons"></div>
+                        <h3>Álgebra</h3>
+                    </div> 
+                    <div class="subject-card" onclick="showIntro('teoria')">
+                        <div class="subject-icon"><img src="img/teoria.png" alt="geo" class="icons"></div>
+                        <h3>Teoria das Probabilidades</h3>
+                    </div> 
+                     <div class="subject-card" onclick="showIntro('análisecomb')">
+                        <div class="subject-icon"><img src="img/combinatória.png" alt="geo" class="icons"></div>
+                        <h3>Análise combinatória</h3>
+                    </div> 
+                     <div class="subject-card" onclick="showIntro('progressão')">
+                        <div class="subject-icon"><img src="img/progressão.png" alt="geo" class="icons"></div>
+                        <h3>Progressão Aritmética</h3>
+                    </div> 
+                     <div class="subject-card" onclick="showIntro('razão')">
+                        <div class="subject-icon"><img src="img/razão.png" alt="geo" class="icons"></div>
+                        <h3>Razão e Proporção</h3>
+                    </div> 
+                </div>
+            </section>
+        </main>
+          <!-- Modal de Introdução -->
+          <div class="intro-modal" id="introModal">
+            <div class="modal-content">
+                <h2 id="modalTitle">Título da Matéria</h2>
+                <p id="modalText">Introdução sobre a matéria...</p>
+                <button class="btn-start" id="startSubjectBtn">Começar a Estudar</button>
+                <button class="btn-close" onclick="closeIntro()">✕</button>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-btn active"><span>🏠</span> Início</a>
+            <a href="materiais.html" class="nav-btn"><span>📚</span> Materiais</a>
+            <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
+        </nav>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Dados das matérias
+        const subjectsData = {
+            geometria: {
+                title: "Geometria Plana",
+                intro: "Estude formas, ângulos e propriedades de figuras bidimensionais. Aprenda a calcular áreas, perímetros e resolva problemas com triângulos, círculos e polígonos.",
+                link: "geometria.html"
+            },
+            análisegraf: {
+                title: "Análise Gráfica",
+                intro: "Explore equações, expressões e funções matemáticas. Domine técnicas para resolver problemas com variáveis e incógnitas de forma sistemática.",
+                link: "algebra.html"
+            },
+            álgebra: {
+                title: "Álgebra",
+                intro: "Explore equações, expressões e funções matemáticas. Domine técnicas para resolver problemas com variáveis e incógnitas de forma sistemática.",
+                link: "algebra.html"
+            },
+            teoria: {
+                title: "Teoria das Probabilidades",
+                intro: "Explore equações, expressões e funções matemáticas. Domine técnicas para resolver problemas com variáveis e incógnitas de forma sistemática.",
+                link: "algebra.html"
+            },
+            análisecomb: {
+                title: "Análise Combinatória",
+                intro: "Explore equações, expressões e funções matemáticas. Domine técnicas para resolver problemas com variáveis e incógnitas de forma sistemática.",
+                link: "algebra.html"
+            },progressão: {
+                title: "Progressão Aritmética",
+                intro: "Explore equações, expressões e funções matemáticas. Domine técnicas para resolver problemas com variáveis e incógnitas de forma sistemática.",
+                link: "algebra.html"
+            },
+            razão: {
+                title: "Razão e Proporção",
+                intro: "Explore equações, expressões e funções matemáticas. Domine técnicas para resolver problemas com variáveis e incógnitas de forma sistemática.",
+                link: "algebra.html"
+            }
+        
+            
+        };
+
+        // Mostra a introdução da matéria
+        function showIntro(subjectId) {
+            const modal = document.getElementById('introModal');
+            const subject = subjectsData[subjectId];
+            
+            document.getElementById('modalTitle').textContent = subject.title;
+            document.getElementById('modalText').textContent = subject.intro;
+            document.getElementById('startSubjectBtn').onclick = function() {
+                window.location.href = subject.link;
+            };
+            
+            modal.style.display = 'flex';
+        }
+
+        // Fecha o modal
+        function closeIntro() {
+            document.getElementById('introModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
