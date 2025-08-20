@@ -106,7 +106,7 @@
             align-items: center;
             justify-content: center;
             color: var(--primary-color);
-            font-size: 3rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
         }
         
@@ -379,21 +379,21 @@
             <section class="intro-section">
                 <h2>Introdução à Geometria Plana</h2>
                 <div class="intro-content">
-                    <p>A geometria plana estuda as figuras que não possuem volume, ou seja, figuras que têm apenas comprimento e largura, situadas em um único plano.</p>
-                    
+                    <p>Para calcular a área de figuras compostas por retângulos:  </p>
+                    <br>
+                    <p>Identifique cada retângulo separadamente. </p>
+                    <br>
+                    <p>Calcule a área de cada um usando </p>
+                                  
                     <div class="intro-graphics">
                         <div class="graphic-container">
-                            <div class="graphic-placeholder">△</div>
-                            <p class="graphic-caption">Triângulo - 3 lados e 3 ângulos</p>
-                        </div>
-                        
-                        <div class="graphic-container">
-                            <div class="graphic-placeholder">⬢</div>
-                            <p class="graphic-caption">Hexágono - 6 lados iguais</p>
+                            <div class="graphic-placeholder">Área=base×altura.</div>
                         </div>
                     </div>
                     
-                    <p>Nesta lição, você aprenderá sobre ângulos, triângulos, quadriláteros e cálculo de áreas.</p>
+                    <p>Some as áreas para obter a total.</p>
+                    <br>
+                    <p>Se necessário, divida a figura em retângulos menores imaginários.</p>
                 </div>
             </section>
 
@@ -403,107 +403,108 @@
                 
                 <!-- Questão 1 -->
                 <div class="question-card" id="question1">
-                    <p class="question-text">1. Qual é a soma dos ângulos internos de um triângulo?</p>
+                    <p class="question-text">1. Um retângulo de 8 m de base e 5 m de altura está ao lado de outro de 4 m de base e 5 m de altura. Qual a área total?</p>
                     <div class="options">
-                        <button class="option-btn" data-correct="true">180°</button>
-                        <button class="option-btn">90°</button>
-                        <button class="option-btn">360°</button>
-                        <button class="option-btn">270°</button>
+                        <button class="option-btn">40 m²</button>
+                        <button class="option-btn" data-correct="true">60 m²</button>
+                        <button class="option-btn">50 m²</button>
+                        <button class="option-btn">80 m²</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback1">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>Em qualquer triângulo, a soma dos ângulos internos é sempre 180 graus.</p>
+                            <p>Você separou os dois retângulos, calculou cada área (8×5 = 40 e 4×5 = 20) e somou.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>Esta é uma propriedade fundamental dos triângulos. Você pode verificar desenhando qualquer triângulo e medindo seus ângulos.</p>
+                            <p>Verifique se não multiplicou apenas uma base pela altura total da figura sem separar as partes.  </p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Questão 2 -->
                 <div class="question-card" id="question2">
-                    <p class="question-text">2. Qual é a área de um retângulo com 5cm de base e 3cm de altura?</p>
+                    <p class="question-text">2. Um retângulo mede 6 m de base e 4 m de altura. Acima dele, centralizado, há outro retângulo de 2 m de base e 3 m de altura. Qual a área total?</p>
                     <div class="options">
-                        <button class="option-btn">8 cm²</button>
-                        <button class="option-btn">15 cm</button>
-                        <button class="option-btn" data-correct="true">15 cm²</button>
-                        <button class="option-btn">16 cm²</button>
+                        <button class="option-btn">26 m²</button>
+                        <button class="option-btn">24 m²</button>
+                        <button class="option-btn" data-correct="true">30 m²</button>
+                        <button class="option-btn">32 m²</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback2">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>A área do retângulo é calculada por: base × altura = 5cm × 3cm = 15cm²</p>
+                            <p>Você somou 6×4 = 24 com 2×3 = 6 e chegou ao total.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>Lembre-se que a área de um retângulo é sempre base × altura, e a unidade de área é sempre ao quadrado (cm², m², etc).</p>
+                            <p>base do retângulo maior para calcular a área do retângulo menor — lembre-se de usar as medidas corretas de cada um.  </p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Questão 3 -->
                 <div class="question-card" id="question3">
-                    <p class="question-text">3. Quantos lados tem um pentágono?</p>
+                    <p class="question-text">3. Uma figura em “L” é formada por um retângulo de 10 m de base e 4 m de altura e outro de 4 m de base e 6 m de altura. Qual a área total?</p>
                     <div class="options">
-                        <button class="option-btn">3</button>
-                        <button class="option-btn">4</button>
-                        <button class="option-btn" data-correct="true">5</button>
-                        <button class="option-btn">6</button>
+                        <button class="option-btn" data-correct="true">76 m²</button>
+                        <button class="option-btn">64 m²</button>
+                        <button class="option-btn">52 m²</button>
+                        <button class="option-btn">40 m²</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback3">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>O prefixo "penta" significa cinco, portanto um pentágono tem cinco lados.</p>
+                            <p>você separou a figura em dois retângulos, calculou 10×4 = 40 e 4×6 = 24, e somou.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>Lembre-se dos prefixos gregos: tri=3, quadri=4, penta=5, hexa=6.</p>
+                            <p>Pode ter subtraído áreas achando que havia sobreposição — nesse caso, não há sobreposição, então some tudo.  </p>
                         </div>
                     </div>
                 </div>
-                  <!-- Questão 3 -->
+                  <!-- Questão 4 -->
                   <div class="question-card" id="question4">
-                    <p class="question-text">3. Quantos lados tem um pentágono?</p>
+                    <p class="question-text">4. Um retângulo de 12 m de base e 5 m de altura tem colado ao lado menor outro retângulo de 3 m de base e 8 m de altura. Qual a área total?</p>
                     <div class="options">
-                        <button class="option-btn">3</button>
-                        <button class="option-btn">4</button>
-                        <button class="option-btn" data-correct="true">5</button>
-                        <button class="option-btn">6</button>
+                        <button class="option-btn">84 m²</button>
+                        <button class="option-btn">76 m²</button>
+                        <button class="option-btn" data-correct="true">96 m²</button>
+                        <button class="option-btn">60 m²</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback4">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>O prefixo "penta" significa cinco, portanto um pentágono tem cinco lados.</p>
+                            <p> Calculou corretamente 12×5 = 60 e 3×8 = 24, e somou para achar 84.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>Lembre-se dos prefixos gregos: tri=3, quadri=4, penta=5, hexa=6.</p>
+                            <p>Veja se não multiplicou a base de 3 m pela altura de 5 m do primeiro retângulo por engano. </p>
                         </div>
                     </div>
-                </div>  <!-- Questão 3 -->
+                </div>  <!-- Questão 5 -->
                 <div class="question-card" id="question5">
-                    <p class="question-text">3. Quantos lados tem um pentágono?</p>
+                    <p class="question-text">5. Um retângulo de 15 m de base e 6 m de altura tem, sobre ele, centralizado, outro retângulo de 9 m de base e 4 m de altura. Qual a área total?</p>
                     <div class="options">
-                        <button class="option-btn">3</button>
-                        <button class="option-btn">4</button>
-                        <button class="option-btn" data-correct="true">5</button>
-                        <button class="option-btn">6</button>
+                        <button class="option-btn">114 m²</button>
+                        <button class="option-btn">150 m²</button>
+                        <button class="option-btn">138 m²</button>
+                        <button class="option-btn" data-correct="true">126 m²</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback5">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>O prefixo "penta" significa cinco, portanto um pentágono tem cinco lados.</p>
+                            <p>Calculou 15×6 = 90 e 9×4 = 36, depois somou corretamente.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>Lembre-se dos prefixos gregos: tri=3, quadri=4, penta=5, hexa=6.</p>
+                            <p>Pode ter usado a base de 15 m para o retângulo menor por descuido — sempre use as medidas exatas de cada parte.
+                            </p>
                         </div>
                     </div>
                 </div>
