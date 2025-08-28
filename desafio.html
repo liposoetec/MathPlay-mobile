@@ -10,7 +10,7 @@
 <body>
     <div class="app-container">
         <header class="app-header">
-            <a href="index.html" class="back-button">←</a>
+            <a href="home.html" class="back-button">←</a>
             <h1>Desafio Diário</h1>
         </header>
 
@@ -39,10 +39,14 @@
                     <p>Portanto, o valor correto de x é <strong>6</strong>.</p>
                 </div>
                 
-                <a href="index.html" class="btn-continue">Continuar</a>
+                <a href="home.html" class="btn-continue">Continuar</a>
             </div>
         </main>
     </div>
+    <script type="module">
+        import { auth, db } from "./firebase.js";
+      </script>
+      
 
     <script>
         // Verifica se há resposta na URL

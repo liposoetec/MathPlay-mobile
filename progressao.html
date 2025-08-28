@@ -370,7 +370,7 @@
 <body>
     <div class="app-container">
         <header class="app-header">
-            <a href="index.html" class="back-button">←</a>
+            <a href="home.html" class="back-button">←</a>
             <h1>Progressão Aritmética</h1>
         </header>
 
@@ -411,11 +411,11 @@
                     <div class="feedback-container" id="feedback1">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>a5 = 2 + (5-1) • 3 = 2 + 12 = 14</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Lembre-se de que o termo geral é an = a1 + (n-1) • r. Substitua  n = 5, a1 = 2, e r = 3.</p>
                         </div>
                     </div>
                 </div>
@@ -433,11 +433,11 @@
                     <div class="feedback-container" id="feedback2">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>10 = a1 + 2 • 4 → a1 = 2</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Use a fórmula do termo geral para isolar a1 : a3 = a1 + 2r. Você tem a3 = 10 e r = 4.</p>
                         </div>
                     </div>
                 </div>
@@ -455,11 +455,11 @@
                     <div class="feedback-container" id="feedback3">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>47 - 22 = 5r → r = 5</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>A diferença entre a10 e a5 é 5r. Calcule 47 - 22 = 25 e divida por 5</p>
                         </div>
                     </div>
                 </div>
@@ -476,11 +476,11 @@
                     <div class="feedback-container" id="feedback4">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>99 = 3 + (n-1) • 4 → n = 25</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Use a fórmula do termo geral para encontrar n: 99 = 3 + (n-1) • 4. Resolva para n.</p>
                         </div>
                     </div>
                 </div>  <!-- Questão 5 -->
@@ -496,11 +496,14 @@
                     <div class="feedback-container" id="feedback5">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>Temos três números em P.A. com razão 4:𝑎,𝑎+4,𝑎+8. </p>
+                            <p>Somando 1, 5 e 17 a eles, viram uma P.G. Para isso, o quadrado do termo do meio tem que ser igual ao produto dos extremos.</p>
+
+                            <p>Resolvendo isso, achamos 𝑎=7. Então, o segundo termo é 7+4=11.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Para resolver, some 1, 5 e 17 aos termos da P.A. e lembre-se que na P.G. o quadrado do termo do meio deve ser igual ao produto dos extremos. Use essa relação para montar a equação e encontrar o valor correto.</p>
                         </div>
                     </div>
                 </div>
@@ -520,17 +523,20 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 
-                <button class="btn-continue" onclick="location.href='index.html'">Voltar ao Início</button>
+                <button class="btn-continue" onclick="location.href='home.html'">Voltar ao Início</button>
             </div>
         </div>
 
         <nav class="bottom-nav">
-            <a href="index.html" class="nav-btn"><span>🏠</span> Início</a>
+            <a href="home.html" class="nav-btn"><span>🏠</span> Início</a>
             <a href="materiais.html" class="nav-btn active"><span>📚</span> Materiais</a>
             <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
         </nav>
     </div>
-
+    <script type="module">
+        import { auth, db } from "./firebase.js";
+      </script>
+      
     <script>
         // Variáveis para controle do progresso
         let correctAnswers = 0;

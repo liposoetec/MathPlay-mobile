@@ -370,7 +370,7 @@
 <body>
     <div class="app-container">
         <header class="app-header">
-            <a href="index.html" class="back-button">←</a>
+            <a href="home.html" class="back-button">←</a>
             <h1>Análise Gráfica</h1>
         </header>
 
@@ -522,17 +522,20 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 
-                <button class="btn-continue" onclick="location.href='index.html'">Voltar ao Início</button>
+                <button class="btn-continue" onclick="location.href='home.html'">Voltar ao Início</button>
             </div>
         </div>
 
         <nav class="bottom-nav">
-            <a href="index.html" class="nav-btn"><span>🏠</span> Início</a>
+            <a href="home.html" class="nav-btn"><span>🏠</span> Início</a>
             <a href="materiais.html" class="nav-btn"><span>📚</span> Materiais</a>
             <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
         </nav>
     </div>
-
+    <script type="module">
+        import { auth, db } from "./firebase.js";
+      </script>
+      
     <script>
         // Variáveis para controle do progresso
         let correctAnswers = 0;

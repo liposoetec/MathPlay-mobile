@@ -190,7 +190,7 @@
 <body>
     <div class="app-container">
         <header class="app-header">
-            <a href="index.html" class="back-button">←</a>
+            <a href="home.html" class="back-button">←</a>
             <h1>Materiais</h1>
         </header>
 
@@ -541,12 +541,15 @@
         </main>
 
         <nav class="bottom-nav">
-            <a href="index.html" class="nav-btn"><span>🏠</span> Início</a>
+            <a href="home.html" class="nav-btn"><span>🏠</span> Início</a>
             <a href="materiais.html" class="nav-btn active"><span>📚</span> Materiais</a>
             <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
         </nav>
     </div>
-
+    <script type="module">
+        import { auth, db } from "./firebase.js";
+      </script>
+      
     <script>
         // Adiciona evento de clique para expandir/recolher os itens
         document.querySelectorAll('.subject-header').forEach(header => {

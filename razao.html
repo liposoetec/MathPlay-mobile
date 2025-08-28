@@ -370,7 +370,7 @@
 <body>
     <div class="app-container">
         <header class="app-header">
-            <a href="index.html" class="back-button">←</a>
+            <a href="home.html" class="back-button">←</a>
             <h1>Razão e Proporção</h1>
         </header>
 
@@ -404,11 +404,12 @@
                     <div class="feedback-container" id="feedback1">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>Preço unitário = 80/4 = 20. Para 7: 7×20 = 140.
+                            </p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Calcule 1 livro primeiro, depois multiplique por 7.</p>
                         </div>
                     </div>
                 </div>
@@ -418,7 +419,7 @@
                     <p class="question-text">2. Um carro percorre 300 km em 5 horas. Quanto tempo levará para percorrer 420 km na mesma velocidade?</p>
                     <div class="options">
                         <button class="option-btn">6 Horas</button>
-                        <button class="option-btn"> data-correct="true"7 Horas</button>
+                        <button class="option-btn" data-correct="true">7 Horas</button>
                         <button class="option-btn">8 Horas</button>
                         <button class="option-btn">9 Horas</button>
                     </div>
@@ -426,11 +427,11 @@
                     <div class="feedback-container" id="feedback2">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>Velocidade = 300/5 = 60 km/h. Tempo = 420/60 = 7 h.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Transforme em regra de três direta: distância ↑ ⇒ tempo ↑ (com velocidade fixa).</p>
                         </div>
                     </div>
                 </div>
@@ -448,11 +449,12 @@
                     <div class="feedback-container" id="feedback3">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>Trabalho constante: operários×dias = 12×10 = 120. Para 8 dias: 120/8 = 15.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>É inverso: menos dias ⇒ mais operários. Pense no produto constante.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -469,11 +471,12 @@
                     <div class="feedback-container" id="feedback4">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>R = k/A. 8 = k/2 ⇒ k = 16. Em A = 4: R = 16/4 = 4.
+                            </p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Dobrar a área numa relação inversa ⇒ a resistência cai pela metade.</p>
                         </div>
                     </div>
                 </div>  <!-- Questão 5 -->
@@ -489,11 +492,12 @@
                     <div class="feedback-container" id="feedback5">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>y = kx²⋅12 = k⋅4 ⇒ k = 3. Para x = 5: y = 3⋅25 = 75.
+                            </p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Existem 25 primos de 1 a 100 (1 não é primo) → 25/100 = 1/4.</p>
                         </div>
                     </div>
                 </div>
@@ -513,17 +517,20 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 
-                <button class="btn-continue" onclick="location.href='index.html'">Voltar ao Início</button>
+                <button class="btn-continue" onclick="location.href='home.html'">Voltar ao Início</button>
             </div>
         </div>
 
         <nav class="bottom-nav">
-            <a href="index.html" class="nav-btn"><span>🏠</span> Início</a>
+            <a href="home.html" class="nav-btn"><span>🏠</span> Início</a>
             <a href="materiais.html" class="nav-btn active"><span>📚</span> Materiais</a>
             <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
         </nav>
     </div>
-
+    <script type="module">
+        import { auth, db } from "./firebase.js";
+      </script>
+      
     <script>
         // Variáveis para controle do progresso
         let correctAnswers = 0;

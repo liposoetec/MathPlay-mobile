@@ -370,7 +370,7 @@
 <body>
     <div class="app-container">
         <header class="app-header">
-            <a href="index.html" class="back-button">←</a>
+            <a href="home.html" class="back-button">←</a>
             <h1>Teoria da Probabilidade</h1>
         </header>
 
@@ -403,11 +403,11 @@
                     <div class="feedback-container" id="feedback1">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p> Resultados possíveis = 2 (cara, coroa). Favoráveis = 1 (cara) → 1/2.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Liste o espaço amostral {cara, coroa} e conte quantos dão “cara”.</p>
                         </div>
                     </div>
                 </div>
@@ -425,11 +425,11 @@
                     <div class="feedback-container" id="feedback2">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>No dado {1,2,3,4,5,6}, pares = {2,4,6} = 3. Total = 6 → 3/6 = 1/2.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Conte primeiro quantos pares existem e só depois divida por 6</p>
                         </div>
                     </div>
                 </div>
@@ -447,11 +447,11 @@
                     <div class="feedback-container" id="feedback3">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>Vermelhas = 3; total = 3+5 = 8 → 3/8.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Denominador é o total de bolas; numerador é só as vermelhas.</p>
                         </div>
                     </div>
                 </div>
@@ -468,11 +468,11 @@
                     <div class="feedback-container" id="feedback4">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>Pares que somam 7: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) = 6. Total = 36 → 6/36 = 1/6.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Monte uma tabela 6×6 das somas e marque os que dão 7.</p>
                         </div>
                     </div>
                 </div>  <!-- Questão 5 -->
@@ -488,11 +488,11 @@
                     <div class="feedback-container" id="feedback5">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>Existem 25 primos de 1 a 100 (1 não é primo) → 25/100 = 1/4.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Elimine pares e múltiplos de 5 (exceto 2 e 5) para facilitar a contagem.</p>
                         </div>
                     </div>
                 </div>
@@ -512,17 +512,20 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 
-                <button class="btn-continue" onclick="location.href='index.html'">Voltar ao Início</button>
+                <button class="btn-continue" onclick="location.href='home.html'">Voltar ao Início</button>
             </div>
         </div>
 
         <nav class="bottom-nav">
-            <a href="index.html" class="nav-btn"><span>🏠</span> Início</a>
+            <a href="home.html" class="nav-btn"><span>🏠</span> Início</a>
             <a href="materiais.html" class="nav-btn active"><span>📚</span> Materiais</a>
             <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
         </nav>
     </div>
-
+    <script type="module">
+        import { auth, db } from "./firebase.js";
+      </script>
+      
     <script>
         // Variáveis para controle do progresso
         let correctAnswers = 0;

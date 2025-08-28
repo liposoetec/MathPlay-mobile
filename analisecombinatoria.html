@@ -370,30 +370,23 @@
 <body>
     <div class="app-container">
         <header class="app-header">
-            <a href="index.html" class="back-button">←</a>
-            <h1>Álgebra</h1>
+            <a href="home.html" class="back-button">←</a>
+            <h1>Análise Combinatória</h1>
         </header>
 
         <main class="main-content">
             <!-- Seção de Introdução -->
             <section class="intro-section">
-                <h2>Introdução à Álgebra</h2>
+                <h2>Introdução à Análise combinatória</h2>
                 <div class="intro-content">
-                    <p>--</p>
+                    <p>O princípio multiplicativo diz que se um evento A pode ocorrer de m maneiras e outro B de n maneiras, então A e B ocorrem juntos de m X n maneiras.</p>
             
                     <div class="intro-graphics">
                         <div class="graphic-container">
                             <div class="graphic-placeholder">-</div>
                             <p class="graphic-caption">--</p>
                         </div>
-                        
-                        <div class="graphic-container">
-                            <div class="graphic-placeholder">-</div>
-                            <p class="graphic-caption">--</p>
-                        </div>
                     </div>
-                    
-                    <p>-</p>
                 </div>
             </section>
 
@@ -403,107 +396,109 @@
                 
                 <!-- Questão 1 -->
                 <div class="question-card" id="question1">
-                    <p class="question-text">-</p>
+                    <p class="question-text">1. Quantos resultados possíveis existem ao lançar uma moeda e um dado?  </p>
                     <div class="options">
-                        <button class="option-btn" data-correct="true">-</button>
-                        <button class="option-btn">-</button>
-                        <button class="option-btn">-</button>
-                        <button class="option-btn">-</button>
+                        <button class="option-btn">6</button>
+                        <button class="option-btn">8</button>
+                        <button class="option-btn">10</button>
+                        <button class="option-btn" data-correct="true">12</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback1">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>Moeda (2) × dado (6) = 12 resultados</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Pense em pares (Moeda, Dado) e conte quantos pares diferentes existem.</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Questão 2 -->
                 <div class="question-card" id="question2">
-                    <p class="question-text">-</p>
+                    <p class="question-text">2. Uma lanchonete oferece 3 tipos de sanduíches e 4 bebidas. De quantas formas uma pessoa pode escolher um sanduíche e uma bebida?</p>
                     <div class="options">
-                        <button class="option-btn">-</button>
-                        <button class="option-btn">-</button>
-                        <button class="option-btn" data-correct="true">-</button>
-                        <button class="option-btn">-</button>
+                        <button class="option-btn">7</button>
+                        <button class="option-btn">10</button>
+                        <button class="option-btn" data-correct="true">12</button>
+                        <button class="option-btn">15</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback2">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>3 sanduíches × 4 bebidas = 12 escolhas.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Para cada sanduíche há 4 bebidas — multiplique em vez de somar.</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Questão 3 -->
                 <div class="question-card" id="question3">
-                    <p class="question-text">-</p>
+                    <p class="question-text">3. Quantos números de 2 algarismos distintos podem ser formados com os dígitos {1, 3, 5, 7} ?</p>
                     <div class="options">
-                        <button class="option-btn">-</button>
-                        <button class="option-btn">-</button>
-                        <button class="option-btn" data-correct="true">-</button>
-                        <button class="option-btn">-</button>
+                        <button class="option-btn">8</button>
+                        <button class="option-btn" data-correct="true">12</button>
+                        <button class="option-btn">16</button>
+                        <button class="option-btn">20</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback3">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>1ª posição: 4 escolhas; 2ª: 3 (sem repetir) → 4×3 = 12.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>“Repetição permitida” = potência: nº de opções por posição elevado ao nº de posições.</p>
                         </div>
                     </div>
                 </div>
-                  <!-- Questão 3 -->
+                  <!-- Questão 4 -->
                   <div class="question-card" id="question4">
-                    <p class="question-text">-</p>
+                    <p class="question-text">4. Quantas senhas de 4 dígitos podem ser criadas usando apenas {0, 1, 2}, permitindo repetição?</p>
                     <div class="options">
-                        <button class="option-btn">-</button>
-                        <button class="option-btn">-</button>
-                        <button class="option-btn" data-correct="true">-</button>
-                        <button class="option-btn">-</button>
+                        <button class="option-btn">64</button>
+                        <button class="option-btn" data-correct="true">81</button>
+                        <button class="option-btn">100</button>
+                        <button class="option-btn">120</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback4">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>4 dígitos com {0,1,2}, repetição permitida → 3 opções por posição → 3^4 = 81.
+                            </p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>“Repetição permitida” = potência: nº de opções por posição elevado ao nº de posições.
+                            </p>
                         </div>
                     </div>
-                </div>  <!-- Questão 3 -->
+                </div>  <!-- Questão 5 -->
                 <div class="question-card" id="question5">
-                    <p class="question-text">-</p>
+                    <p class="question-text">5. De quantas maneiras 5 pessoas podem se sentar em um banco com 5 lugares?</p>
                     <div class="options">
-                        <button class="option-btn">-</button>
-                        <button class="option-btn">-</button>
-                        <button class="option-btn" data-correct="true">-</button>
-                        <button class="option-btn">-</button>
+                        <button class="option-btn">25</button>
+                        <button class="option-btn">60</button>
+                        <button class="option-btn" data-correct="true">120</button>
+                        <button class="option-btn">720</button>
                     </div>
                     
                     <div class="feedback-container" id="feedback5">
                         <div class="correct-feedback">
                             <p><strong>Resposta</strong></p>
-                            <p>-</p>
+                            <p>5 pessoas em 5 lugares → permutação: 5! = 5×4×3×2×1 = 120.</p>
                         </div>
                         <div class="error-explanation">
                             <p><strong>Explicação:</strong></p>
-                            <p>-</p>
+                            <p>Distribua por etapas (5 escolhas para o 1º, 4 para o 2º, …) e multiplique tudo.</p>
                         </div>
                     </div>
                 </div>
@@ -523,16 +518,20 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 
-                <button class="btn-continue" onclick="location.href='index.html'">Voltar ao Início</button>
+                <button class="btn-continue" onclick="location.href='home.html'">Voltar ao Início</button>
             </div>
         </div>
 
         <nav class="bottom-nav">
-            <a href="index.html" class="nav-btn"><span>🏠</span> Início</a>
+            <a href="home.html" class="nav-btn"><span>🏠</span> Início</a>
             <a href="materiais.html" class="nav-btn"><span>📚</span> Materiais</a>
             <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
         </nav>
     </div>
+    <script type="module">
+        import { auth, db } from "./firebase.js";
+      </script>
+      
 
     <script>
         // Variáveis para controle do progresso

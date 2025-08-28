@@ -3,141 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathPlay - Aprenda Matemática</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Login - MathPlay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #f5f9fc;
+        }
+        
+        /* Container principal */
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            background: linear-gradient(135deg, #E8F4FC 0%, #D4E6F1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Cabeçalho com logo */
+        .login-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            z-index: 2;
+        }
+        
+        .app-logo {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #5D9CEC;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-weight: 700;
+        }
+        
+        .app-slogan {
+            color: #6B7C93;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Formulário de login */
+        .login-form {
+            width: 100%;
+            max-width: 350px;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            z-index: 2;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #6B7C93;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #D4E6F1;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #5D9CEC;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(93, 156, 236, 0.2);
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to right, #5D9CEC, #89B8E0);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* Rodapé */
+        .login-footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #6B7C93;
+            z-index: 2;
+        }
+        
+        /* Elementos decorativos */
+        .math-icon {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 1;
+            font-size: 4rem;
+            color: #5D9CEC;
+        }
+        
+        /* Tela de carregamento */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #E8F4FC 0%, #D4E6F1 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(93, 156, 236, 0.2);
+            border-radius: 50%;
+            border-top-color: #5D9CEC;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1.5rem;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #5D9CEC;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .loading-mascot {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-15px); }
+        }
+    </style>
 </head>
 <body>
-   <div class="app-container">
-        <header class="app-header">
-            <div class="user-profile">
-                <span class="username">Olá, Estudante!</span>
-            </div>
-        </header>
-
-        <main class="main-content">
-            <div class="motivational-section">
-                <div class="mascot"><img src="img/mascote.png" alt="mascote" class="logomascote"></div>
-                <p class="motivational-text">Vamos aprender matemática de forma divertida!</p>
-            </div>
-
-             <div class="daily-challenge-card" onclick="location.href='desafio.html'">
-                <h3>Desafio Diário</h3>
-                <p>Teste seus conhecimentos com o desafio de hoje!</p>
-            </div>
-
-            <section class="subjects-section">
-                <h2>Matérias</h2>
-                <div class="subjects-grid">
-                    <div class="subject-card" onclick="showIntro('geometria')">
-                        <div class="subject-icon"><img src="img/geometria.png" alt="geo" class="icons"></div>
-                        <h3>Geometria Plana</h3>
-                    </div> 
-                     <div class="subject-card" onclick="showIntro('análisegraf')">
-                        <div class="subject-icon"><img src="img/grafica.png" alt="geo" class="icons"></div>
-                        <h3>Análise Gráfica</h3>
-                    </div> 
-                     <div class="subject-card" onclick="showIntro('álgebra')">
-                        <div class="subject-icon"><img src="img/algebra.png" alt="geo" class="icons"></div>
-                        <h3>Álgebra</h3>
-                    </div> 
-                    <div class="subject-card" onclick="showIntro('teoria')">
-                        <div class="subject-icon"><img src="img/teoria.png" alt="geo" class="icons"></div>
-                        <h3>Teoria das Probabilidades</h3>
-                    </div> 
-                     <div class="subject-card" onclick="showIntro('análisecomb')">
-                        <div class="subject-icon"><img src="img/combinatória.png" alt="geo" class="icons"></div>
-                        <h3>Análise combinatória</h3>
-                    </div> 
-                     <div class="subject-card" onclick="showIntro('progressão')">
-                        <div class="subject-icon"><img src="img/progressão.png" alt="geo" class="icons"></div>
-                        <h3>Progressão Aritmética</h3>
-                    </div> 
-                     <div class="subject-card" onclick="showIntro('razão')">
-                        <div class="subject-icon"><img src="img/razão.png" alt="geo" class="icons"></div>
-                        <h3>Razão e Proporção</h3>
-                    </div> 
-                </div>
-            </section>
-        </main>
-          <!-- Modal de Introdução -->
-          <div class="intro-modal" id="introModal">
-            <div class="modal-content">
-                <h2 id="modalTitle">Título da Matéria</h2>
-                <p id="modalText">Introdução sobre a matéria...</p>
-                <button class="btn-start" id="startSubjectBtn">Começar a Estudar</button>
-                <button class="btn-close" onclick="closeIntro()">✕</button>
-            </div>
+    <div class="login-container">
+        <!-- Elementos decorativos -->
+        <div class="math-icon" style="top:10%;left:10%;transform:rotate(15deg);">∫</div>
+        <div class="math-icon" style="bottom:15%;right:10%;transform:rotate(-10deg);">π</div>
+        
+        <!-- Conteúdo principal -->
+        <div class="login-header">
+            <div class="app-logo">MathPlay</div>
+            <p class="app-slogan">Aprenda matemática de forma divertida!</p>
         </div>
-
-        <nav class="bottom-nav">
-            <a href="index.html" class="nav-btn active"><span>🏠</span> Início</a>
-            <a href="materiais.html" class="nav-btn"><span>📚</span> Materiais</a>
-            <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
-        </nav>
-
+        
+        <div class="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Digite seu email">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" class="form-control" placeholder="Digite sua senha">
+            </div>
+            
+            <button class="btn-login" id="loginButton">Entrar</button>
+        </div>
+        
+        <div class="login-footer">
+            <p>Novo por aqui? <a href="cadastro.html" style="color: #5D9CEC;">Crie uma conta</a></p>
+        </div>
+        
+        <!-- Tela de carregamento (inicialmente oculta) -->
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loading-mascot">🐰</div>
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Carregando seu aprendizado...</div>
+        </div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        // Dados das matérias
-        const subjectsData = {
-            geometria: {
-                title: "Geometria Plana",
-                intro: "Estude formas, ângulos e propriedades de figuras bidimensionais. Aprenda a calcular áreas, perímetros e resolva problemas com triângulos, círculos e polígonos.",
-                link: "geometria.html"
-            },
-            análisegraf: {
-                title: "Análise Gráfica",
-                intro: "Aprenda a interpretar e construir gráficos de funções e dados. Identifique tendências, pontos, inclinações e relações entre variáveis de forma clara e prática.",
-                link: "analisegrafica.html"
-            },
-            álgebra: {
-                title: "Álgebra",
-                intro: "Estude operações com números e expressões, equações e inequações. Desenvolva habilidades para resolver problemas envolvendo variáveis e fórmulas.",
-                link: "algebra.html"
-            },
-            teoria: {
-                title: "Teoria das Probabilidades",
-                intro: "Aprenda a calcular a chance de eventos acontecerem. Estude situações de incerteza, probabilidades simples e compostas, e tome decisões baseadas em cálculos.",
-                link: "teoria.html"
-            },
-            análisecomb: {
-                title: "Análise Combinatória",
-                intro: "Explore formas de contar e organizar elementos de conjuntos. Resolva problemas com permutações, combinações e arranjos de maneira lógica e eficiente.",
-                link: "analisecombinatoria.html"
-            },progressão: {
-                title: "Progressão Aritmética",
-                intro: "Estude sequências numéricas com diferença constante entre termos. Aprenda a identificar padrões, calcular termos e somas de progressões aritméticas.",
-                link: "progressao.html"
-            },
-            razão: {
-                title: "Razão e Proporção",
-                intro: "Aprenda a comparar grandezas e estabelecer relações entre números. Resolva problemas de proporção direta e inversa aplicados a situações do dia a dia.",
-                link: "razao.html"
+    <!-- Script Firebase -->
+    <script type="module">
+        import { auth } from "./firebase.js";
+        import { signInWithEmailAndPassword } 
+          from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+        const loginBtn = document.getElementById('loginButton');
+        const loadingScreen = document.getElementById('loadingScreen');
+
+        loginBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('password').value;
+
+            // Mostra tela de carregamento
+            loadingScreen.classList.add('active');
+
+            try {
+                await signInWithEmailAndPassword(auth, email, senha);
+                // Se der certo → vai pra home
+                window.location.href = 'home.html';
+            } catch (err) {
+                loadingScreen.classList.remove('active');
+                alert("Erro no login: " + err.message);
             }
-        
-            
-        };
-
-        // Mostra a introdução da matéria
-        function showIntro(subjectId) {
-            const modal = document.getElementById('introModal');
-            const subject = subjectsData[subjectId];
-            
-            document.getElementById('modalTitle').textContent = subject.title;
-            document.getElementById('modalText').textContent = subject.intro;
-            document.getElementById('startSubjectBtn').onclick = function() {
-                window.location.href = subject.link;
-            };
-            
-            modal.style.display = 'flex';
-        }
-
-        // Fecha o modal
-        function closeIntro() {
-            document.getElementById('introModal').style.display = 'none';
-        }
+        });
     </script>
 </body>
 </html>
