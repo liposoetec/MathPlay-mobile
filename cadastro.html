@@ -147,9 +147,6 @@
 
                 alert("Conta criada com sucesso! Você já pode entrar.");
                 window.location.href = "index.html";
-            } catch (err) {
-                console.error("Erro ao criar conta:", err);
-                alert("Erro ao criar conta: " + err.message);
             } finally {
                 loadingMsg.style.display = "none";
             }
