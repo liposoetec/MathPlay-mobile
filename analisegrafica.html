@@ -100,12 +100,10 @@
         .graphic-placeholder {
             width: 100%;
             height: 150px;
-            background-color: #F0F8FF;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-color);
             font-size: 3rem;
             margin-bottom: 0.5rem;
         }
@@ -365,13 +363,16 @@
             font-size: 1.2rem;
             margin-bottom: 0.2rem;
         }
+        .centro{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="app-container">
         <header class="app-header">
             <a href="home.html" class="back-button">←</a>
-            <h1>Análise Gráfica</h1>
+            <h1 class="centro">Análise Gráfica</h1>
         </header>
 
         <main class="main-content">
@@ -387,7 +388,7 @@
             
                     <div class="intro-graphics">
                         <div class="graphic-container">
-                            <div class="graphic-placeholder"><img src="img/Grafico.jpeg" alt="grafico" height="180px" width="360px"></div>
+                            <div class="graphic-placeholder"><img src="img/Grafico.jpeg" alt="grafico" height="180px" width="200"></div>
                         </div>
                     </div>
                     
@@ -529,7 +530,6 @@
         <nav class="bottom-nav">
             <a href="home.html" class="nav-btn"><span>🏠</span> Início</a>
             <a href="materiais.html" class="nav-btn"><span>📚</span> Materiais</a>
-            <a href="conquistas.html" class="nav-btn"><span>🏆</span> Conquistas</a>
         </nav>
     </div>
     <script type="module">

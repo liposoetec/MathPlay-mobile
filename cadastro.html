@@ -121,9 +121,14 @@
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             
-            const nome = document.getElementById("nome").value;
-            const email = document.getElementById("email").value;
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
             const senha = document.getElementById("senha").value;
+
+            if (!nome) {
+                alert("Por favor, digite seu nome.");
+                return;
+            }
 
             loadingMsg.style.display = "block";
 
@@ -131,20 +136,21 @@
                 // cria conta no Firebase Auth
                 const userCred = await createUserWithEmailAndPassword(auth, email, senha);
 
-                // atualiza nome de exibição
+                // atualiza nome de exibição no Auth
                 await updateProfile(userCred.user, { displayName: nome });
 
-                // salva informações adicionais no Firestore
+                // salva informações no Firestore (collection 'usuarios')
                 await setDoc(doc(db, "usuarios", userCred.user.uid), {
                     nome: nome,
-                    email: email,
-                    conquistas: [] // começa sem conquistas
+                    email: email
                 });
 
                 alert("Conta criada com sucesso! Você já pode entrar.");
                 window.location.href = "index.html";
             } catch (err) {
-                alert("Erro no cadastro: " + err.message);
+                console.error("Erro ao criar conta:", err);
+                alert("Erro ao criar conta: " + err.message);
+            } finally {
                 loadingMsg.style.display = "none";
             }
         });
